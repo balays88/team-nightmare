@@ -1,0 +1,50 @@
+code: security
+name: "Security Suite (Nightmare Team)"
+header: "HARDENED security orchestration and threat modeling module."
+subheader: "Enforces Constant Vigilance via multi-agent validation. NOT FOR THE FAINT OF HEART."
+version: 1.0.0
+unitary: true
+default_selected: false
+tags:
+  - security
+  - hardened
+  - threat-modeling
+  - audit
+  - pentest
+  - constant-vigilance
+
+# Custom Variables for the Nightmare Team
+security_defcon_level:
+  prompt: "What is the initial Security DEFCON level?"
+  default: "5"
+  result: "{value}"
+  single-select:
+    - value: "5"
+      label: "DEFCON 5 - Normal (Constant Vigilance still required)"
+    - value: "4"
+      label: "DEFCON 4 - Increased watchfulness"
+    - value: "3"
+      label: "DEFCON 3 - Round-the-clock audit"
+    - value: "2"
+      label: "DEFCON 2 - High Alert (Moody is shouting)"
+    - value: "1"
+      label: "DEFCON 1 - COCKED PISTOL (Sherlock is hunting)"
+
+threat_artifacts_folder:
+  prompt: "Where should security artifacts and death lists be stored?"
+  default: "{output_folder}/security-reports"
+  result: "{project-root}/{value}"
+
+compliance_standards:
+  prompt: "Which standards should Barnaby enforce?"
+  default: ["owasp-top-10"]
+  result: "{value}"
+  multi-select:
+    - value: "owasp-top-10"
+      label: "OWASP Top 10"
+    - value: "gdpr"
+      label: "GDPR Compliance"
+    - value: "ca-sb-327"
+      label: "California SB 327 (No default passwords)"
+
+# Note: user_name, communication_language, etc. are automatically injected.

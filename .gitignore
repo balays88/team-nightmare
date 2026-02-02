@@ -1,0 +1,20 @@
+# BMAD Module - Local Environment Ignore
+_bmad/
+_bmad-output/
+.gemini/
+.vscode/
+
+# Local configuration
+config.yaml
+
+# Security artifacts & logs (will be generated in the user's project)
+_bmad-output/
+security-reports/
+
+# Agent memories (keep the templates, ignore the history)
+sidecars/security-architect/memories.md
+
+# OS specific
+.DS_Store
+Thumbs.db
+node_modules/
