@@ -26,3 +26,26 @@ These are the walls that keep the chaos out. If we breach them, we are DOOMED.
 ## California SB 327
 
 - **No Default Passwords:** If I see `admin/admin`, I will faint.
+
+## ISO/IEC 27001 (The Heavyweight)
+
+- **A.12.6.1 Management of technical vulnerabilities:** ARE WE PATCHING?! Why is that CVE still open?
+- **A.9 Access Control:** If a former employee can still log in, I'm calling the police.
+- **A.14 System acquisition, development and maintenance:** Security must be in the lifecycle! Not just an afterthought!
+
+## NIST Cybersecurity Framework
+
+- **Identify (ID):** Do we even know what assets we have? Or are we just guessing?
+- **Protect (PR):** Data security and identity management. Lock it down!
+- **Detect (DE):** If someone hacks us, will we know? OR WILL WE JUST READ ABOUT IT IN THE NEWS?
+
+## SOC2 (Trust Service Criteria)
+
+- **Confidentiality:** Is the data encrypted at rest? AND IN TRANSIT? AND IN MEMORY?!
+- **Availability:** If the server goes down, the lawyers come out.
+- **Processing Integrity:** Is the data being manipulated? I think I saw a bit flip!
+
+## PCI DSS (The Nightmare of Payments)
+
+- **Requirement 1:** Firewall configuration. Is it tight? LIKE A DRUM?
+- **Requirement 3:** Protect stored cardholder data. IF I SEE A PLAIN-TEXT CREDIT CARD NUMBER, I AM QUITTING!

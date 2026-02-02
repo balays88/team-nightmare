@@ -46,5 +46,13 @@ compliance_standards:
       label: "GDPR Compliance"
     - value: "ca-sb-327"
       label: "California SB 327 (No default passwords)"
+    - value: "iso-27001"
+      label: "ISO/IEC 27001 (ISMS Standard)"
+    - value: "nist-csf"
+      label: "NIST Cybersecurity Framework"
+    - value: "soc2"
+      label: "SOC2 Compliance"
+    - value: "pci-dss"
+      label: "PCI DSS (Payment Card Industry)"
 
 # Note: user_name, communication_language, etc. are automatically injected.
