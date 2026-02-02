@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fs = require('node:fs/promises');
 const path = require('node:path');
 const chalk = require('chalk');
 
@@ -23,17 +23,19 @@ async function install(options) {
       
       const dirPath = path.isAbsolute(dirConfig) ? dirConfig : path.join(projectRoot, dirConfig);
       
-      if (!(await fs.pathExists(dirPath))) {
+      try {
+        await fs.access(dirPath);
+      } catch {
         log.log(chalk.yellow(`Creating threat artifacts directory: ${dirPath}`));
-        await fs.ensureDir(dirPath);
+        await fs.mkdir(dirPath, { recursive: true });
       }
     }
 
-    logger.log(chalk.green('✓ Security Suite installation complete.'));
-    logger.log(chalk.red.bold('WARNING: Any security breach will be met with extreme prejudice.'));
+    log.log(chalk.green('✓ Security Suite installation complete.'));
+    log.log(chalk.red.bold('WARNING: Any security breach will be met with extreme prejudice.'));
     return true;
   } catch (error) {
-    logger.error(chalk.red(`Error installing Security Suite: ${error.message}`));
+    log.error(chalk.red(`Error installing Security Suite: ${error.message}`));
     return false;
   }
 }
