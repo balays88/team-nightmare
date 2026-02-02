@@ -16,7 +16,7 @@ tags:
 # Custom Variables for the Nightmare Team
 security_defcon_level:
   prompt: "What is the initial Security DEFCON level?"
-  default: "5"
+  default: "3"
   result: "{value}"
   single-select:
     - value: "5"

@@ -1,6 +1,5 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
-const chalk = require('chalk');
 
 /**
  * Security Suite (Nightmare Team) Installer
@@ -10,8 +9,8 @@ async function install(options) {
   const log = logger || console;
 
   try {
-    log.log(chalk.red.bold('🚨 INSTALLING SECURITY SUITE (NIGHTMARE TEAM)...'));
-    log.log(chalk.yellow('Remember: Constant Vigilance!'));
+    log.log('🚨 INSTALLING SECURITY SUITE (NIGHTMARE TEAM)...');
+    log.log('Remember: Constant Vigilance!');
 
     // 1. Ensure Sidecar directories exist
     const sidecarDirs = [
@@ -39,11 +38,11 @@ async function install(options) {
     if (!memoryExists) {
       const templateExists = await fs.access(templatePath).then(() => true).catch(() => false);
       if (templateExists) {
-        log.log(chalk.yellow('Initializing security architect memory from template...'));
+        log.log('Initializing security architect memory from template...');
         await fs.copyFile(templatePath, memoryPath);
       }
     } else {
-      log.log(chalk.blue('✓ Existing security architect memory detected. Keeping it safe.'));
+      log.log('✓ Existing security architect memory detected. Keeping it safe.');
     }
 
     // 3. Create threat artifacts directory
@@ -59,16 +58,16 @@ async function install(options) {
       try {
         await fs.access(dirPath);
       } catch {
-        log.log(chalk.yellow(`Creating threat artifacts directory: ${dirPath}`));
+        log.log(`Creating threat artifacts directory: ${dirPath}`);
         await fs.mkdir(dirPath, { recursive: true });
       }
     }
 
-    log.log(chalk.green('✓ Security Suite installation complete.'));
-    log.log(chalk.red.bold('WARNING: Any security breach will be met with extreme prejudice.'));
+    log.log('✓ Security Suite installation complete.');
+    log.log('WARNING: Any security breach will be met with extreme prejudice.');
     return true;
   } catch (error) {
-    log.error(chalk.red(`Error installing Security Suite: ${error.message}`));
+    log.error(`Error installing Security Suite: ${error.message}`);
     return false;
   }
 }
