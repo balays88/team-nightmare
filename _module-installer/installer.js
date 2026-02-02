@@ -13,7 +13,40 @@ async function install(options) {
     log.log(chalk.red.bold('🚨 INSTALLING SECURITY SUITE (NIGHTMARE TEAM)...'));
     log.log(chalk.yellow('Remember: Constant Vigilance!'));
 
-    // Create threat artifacts directory
+    // 1. Ensure Sidecar directories exist
+    const sidecarDirs = [
+      'sidecars/security-architect/workflows',
+      'sidecars/security-auditor/knowledge',
+      'sidecars/security-auditor/workflows',
+      'sidecars/penetration-tester/knowledge',
+      'sidecars/penetration-tester/workflows',
+      'sidecars/threat-modeling/knowledge',
+      'sidecars/threat-modeling/workflows'
+    ];
+
+    for (const dir of sidecarDirs) {
+      const fullPath = path.join(projectRoot, dir);
+      if (!(await fs.access(fullPath).then(() => true).catch(() => false))) {
+        await fs.mkdir(fullPath, { recursive: true });
+      }
+    }
+
+    // 2. Initialize Memory from template (DO NOT OVERWRITE)
+    const memoryPath = path.join(projectRoot, 'sidecars/security-architect/memories.md');
+    const templatePath = path.join(projectRoot, 'sidecars/security-architect/memories.template.md');
+
+    const memoryExists = await fs.access(memoryPath).then(() => true).catch(() => false);
+    if (!memoryExists) {
+      const templateExists = await fs.access(templatePath).then(() => true).catch(() => false);
+      if (templateExists) {
+        log.log(chalk.yellow('Initializing security architect memory from template...'));
+        await fs.copyFile(templatePath, memoryPath);
+      }
+    } else {
+      log.log(chalk.blue('✓ Existing security architect memory detected. Keeping it safe.'));
+    }
+
+    // 3. Create threat artifacts directory
     if (config['threat_artifacts_folder']) {
       // Clean path: handle both {project-root}/ and absolute paths
       let dirConfig = config['threat_artifacts_folder'];
