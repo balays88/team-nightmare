@@ -1,8 +1,8 @@
 # Security Suite (Nightmare Team)
 
-HARDENED security orchestration and threat modeling module.
+**Nightmare Team: Hardened Multi-Agent Security Orchestration**
 
-Enforces Constant Vigilance via multi-agent validation. NOT FOR THE FAINT OF HEART.
+*Constant Vigilance through paranoid audit and elite adversarial testing.*
 
 ---
 
