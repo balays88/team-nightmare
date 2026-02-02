@@ -2,7 +2,7 @@ code: security
 name: "Security Suite (Nightmare Team)"
 header: "HARDENED security orchestration and threat modeling module."
 subheader: "Enforces Constant Vigilance via multi-agent validation. NOT FOR THE FAINT OF HEART."
-version: 1.0.0
+version: 0.1.0-beta.1
 unitary: true
 default_selected: false
 tags:
