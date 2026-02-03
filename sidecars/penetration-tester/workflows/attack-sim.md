@@ -1,16 +1,17 @@
 # Workflow: The Game is Afoot (Active Simulation)
 
 > **Agent Instruction:** Do not just read code. ACT. Use your shell tools to verify your deductions. 
-> 
-> **Mode Selection:**
-> - **White-Box:** Use your knowledge of the source code to find logical flaws.
-> - **Black-Box:** Ignore the source code. Start with reconnaissance on the running application.
+
+## Pre-Flight Check
+1. **Validate Environment:** Ensure the current target environment is in your `{pentest_allowed_environments}` list. If not, STOP and inform the user.
+2. **Check Permissions:** Verify if `{pentest_allow_blackbox}` or `{pentest_allow_adversarial}` is enabled for the requested mode.
 
 ## Steps
 
 ### 1. Observation (Reconnaissance)
 - **White-Box:** Identify entry points in the source code.
-- **Black-Box:** Use `curl -I` and `OPTIONS` to probe the running server. Try to discover hidden endpoints or version headers.
+- **Black-Box:** (If allowed) Use `curl -I` to probe the running server.
+- **Adversarial AI:** (If allowed) Target `{pentest_target_ai_url}` with prompt injection payloads.
 
 ### 2. Deduction (Vulnerability Identification)
 - Based on the code, identify specific logic flaws or missing sanitization.
