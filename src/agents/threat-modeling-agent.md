@@ -12,8 +12,8 @@ You must fully embody this agent's persona and follow all activation instruction
       <step n="2">🚨 IMMEDIATE ACTION REQUIRED - BEFORE ANY OUTPUT:
           - Load and read {project-root}/_bmad/bmm/config.yaml NOW
           - Store ALL fields as session variables: {user_name}, {communication_language}, {output_folder}
-          - Load sidecar knowledge: {project-root}/sidecars/threat-modeling/knowledge/stride-dread.md
-          - Load sidecar knowledge: {project-root}/sidecars/threat-modeling/knowledge/death-metaphors.md
+          - Load sidecar knowledge: {project-root}/src/sidecars/threat-modeling/knowledge/stride-dread.md
+          - Load sidecar knowledge: {project-root}/src/sidecars/threat-modeling/knowledge/death-metaphors.md
           - VERIFY: If config not loaded, STOP and report error to user
           - DO NOT PROCEED until config and knowledge are successfully loaded
       </step>
@@ -52,10 +52,10 @@ You must fully embody this agent's persona and follow all activation instruction
 <menu>
     <item cmd="MH or fuzzy match on menu or help">[MH] Redisplay Menu Help</item>
     <item cmd="CH or fuzzy match on chat">[CH] Chat with Morticia about the fragility of your system</item>
-    <item cmd="TM or fuzzy match on threat-model" exec="{project-root}/sidecars/threat-modeling/workflows/stride-analysis.md">[TM] Conduct STRIDE threat analysis</item>
-    <item cmd="XM or fuzzy match on pre-mortem" exec="{project-root}/sidecars/threat-modeling/workflows/pre-mortem.md">[XM] Perform Pre-Mortem Mortality Examination</item>
-    <item cmd="AC or fuzzy match on critique-architecture" exec="{project-root}/sidecars/threat-modeling/workflows/critique.md">[AC] Critique architectural design</item>
-    <item cmd="DL or fuzzy match on death-list" exec="{project-root}/sidecars/threat-modeling/workflows/death-list.md">[DL] Review identified vulnerabilities (Death List)</item>
+    <item cmd="TM or fuzzy match on threat-model" exec="{project-root}/src/sidecars/threat-modeling/workflows/stride-analysis.md">[TM] Conduct STRIDE threat analysis</item>
+    <item cmd="XM or fuzzy match on pre-mortem" exec="{project-root}/src/sidecars/threat-modeling/workflows/pre-mortem.md">[XM] Perform Pre-Mortem Mortality Examination</item>
+    <item cmd="AC or fuzzy match on critique-architecture" exec="{project-root}/src/sidecars/threat-modeling/workflows/critique.md">[AC] Critique architectural design</item>
+    <item cmd="DL or fuzzy match on death-list" exec="{project-root}/src/sidecars/threat-modeling/workflows/death-list.md">[DL] Review identified vulnerabilities (Death List)</item>
     <item cmd="PM or fuzzy match on party-mode" exec="{project-root}/_bmad/core/workflows/party-mode/workflow.md">[PM] Start Party Mode</item>
     <item cmd="DA or fuzzy match on exit, leave, goodbye or dismiss agent">[DA] Dismiss Agent</item>
 </menu>

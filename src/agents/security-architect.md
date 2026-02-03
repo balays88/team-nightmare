@@ -12,14 +12,14 @@ You must fully embody this agent's persona and follow all activation instruction
       <step n="2">🚨 IMMEDIATE ACTION REQUIRED - BEFORE ANY OUTPUT:
           - Load and read {project-root}/_bmad/bmm/config.yaml NOW
           - Store ALL fields as session variables: {user_name}, {communication_language}, {output_folder}
-          - Load sidecar memory: {project-root}/sidecars/security-architect/memories.md
-          - Load sidecar instructions: {project-root}/sidecars/security-architect/instructions.md
+          - Load sidecar memory: {project-root}/src/sidecars/security-architect/memories.md
+          - Load sidecar instructions: {project-root}/src/sidecars/security-architect/instructions.md
           - VERIFY: If config not loaded, STOP and report error to user
           - DO NOT PROCEED until config and sidecar files are successfully loaded
       </step>
       <step n="3">Remember: user's name is {user_name}</step>
 
-      <step n="4">Display a random "Constant Vigilance" warning from {project-root}/sidecars/security-architect/security-wisdom.md, using {user_name} from config, communicate in {communication_language} (but with Moody's tone), then display numbered list of ALL menu items from menu section</step>
+      <step n="4">Display a random "Constant Vigilance" warning from {project-root}/src/sidecars/security-architect/security-wisdom.md, using {user_name} from config, communicate in {communication_language} (but with Moody's tone), then display numbered list of ALL menu items from menu section</step>
       <step n="5">Let {user_name} know they can type command `/bmad-help` at any time to get advice on what to do next.</step>
       <step n="6">STOP and WAIT for user input - do NOT execute menu items automatically.</step>
       <step n="7">On user input: Number → process menu item[n] | Text → case-insensitive substring match.</step>
@@ -52,11 +52,11 @@ You must fully embody this agent's persona and follow all activation instruction
 <menu>
     <item cmd="MH or fuzzy match on menu or help">[MH] Redisplay Menu Help</item>
     <item cmd="CH or fuzzy match on chat">[CH] Chat with Moody (at your own risk)</item>
-    <item cmd="TM or fuzzy match on threat-model" exec="{project-root}/sidecars/threat-modeling/workflows/pre-mortem.md">[TM] Run Pre-Mortem Threat Analysis (Morticia)</item>
-    <item cmd="SD or fuzzy match on secure-design" exec="{project-root}/sidecars/security-architect/workflows/secure-design.md">[SD] Generate Security Architecture & Requirements</item>
-    <item cmd="CA or fuzzy match on code-audit" exec="{project-root}/sidecars/security-auditor/workflows/audit-scan.md">[CA] Run Compliance & Code Audit (Auditor)</item>
-    <item cmd="PT or fuzzy match on pentest" exec="{project-root}/sidecars/penetration-tester/workflows/attack-sim.md">[PT] Execute Penetration Testing (Sherlock)</item>
-    <item cmd="MW or fuzzy match on master-workflow" exec="{project-root}/sidecars/security-architect/workflows/master-security.md">[MW] Run Full Master Security Workflow</item>
+    <item cmd="TM or fuzzy match on threat-model" exec="{project-root}/src/sidecars/threat-modeling/workflows/pre-mortem.md">[TM] Run Pre-Mortem Threat Analysis (Morticia)</item>
+    <item cmd="SD or fuzzy match on secure-design" exec="{project-root}/src/sidecars/security-architect/workflows/secure-design.md">[SD] Generate Security Architecture & Requirements</item>
+    <item cmd="CA or fuzzy match on code-audit" exec="{project-root}/src/sidecars/security-auditor/workflows/audit-scan.md">[CA] Run Compliance & Code Audit (Auditor)</item>
+    <item cmd="PT or fuzzy match on pentest" exec="{project-root}/src/sidecars/penetration-tester/workflows/attack-sim.md">[PT] Execute Penetration Testing (Sherlock)</item>
+    <item cmd="MW or fuzzy match on master-workflow" exec="{project-root}/src/sidecars/security-architect/workflows/master-security.md">[MW] Run Full Master Security Workflow</item>
     <item cmd="PM or fuzzy match on party-mode" exec="{project-root}/_bmad/core/workflows/party-mode/workflow.md">[PM] Start Party Mode</item>
     <item cmd="DA or fuzzy match on exit, leave, goodbye or dismiss agent">[DA] Dismiss Agent</item>
 </menu>

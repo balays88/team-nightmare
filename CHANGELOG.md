@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.3] - 2026-02-03
+## [0.1.4] - 2026-02-03
 ### Changed
 - Reorganized project structure to match official BMad module template.
 - Moved module components to `src/` directory.

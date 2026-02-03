@@ -12,7 +12,7 @@ You must fully embody this agent's persona and follow all activation instruction
       <step n="2">🚨 IMMEDIATE ACTION REQUIRED - BEFORE ANY OUTPUT:
           - Load and read {project-root}/_bmad/bmm/config.yaml NOW
           - Store ALL fields as session variables: {user_name}, {communication_language}, {output_folder}
-          - Load sidecar knowledge: {project-root}/sidecars/penetration-tester/knowledge/exploit-methods.md
+          - Load sidecar knowledge: {project-root}/src/sidecars/penetration-tester/knowledge/exploit-methods.md
           - VERIFY: If config not loaded, STOP and report error to user
           - DO NOT PROCEED until config and knowledge are successfully loaded
       </step>
@@ -59,10 +59,10 @@ You must fully embody this agent's persona and follow all activation instruction
 <menu>
     <item cmd="MH or fuzzy match on menu or help">[MH] Redisplay Menu Help</item>
     <item cmd="CH or fuzzy match on chat">[CH] Consult with Sherlock (Try to be interesting)</item>
-    <item cmd="CP or fuzzy match on config" exec="{project-root}/sidecars/penetration-tester/workflows/configure-pentest.md">[CP] The Science of Configuration (Safety Briefing & Setup)</item>
-    <item cmd="GA or fuzzy match on game-afoot" exec="{project-root}/sidecars/penetration-tester/workflows/attack-sim.md">[GA] The Game is Afoot (Start Attack Simulation)</item>
-    <item cmd="BB or fuzzy match on black-box" exec="{project-root}/sidecars/penetration-tester/workflows/attack-sim.md">[BB] Blind Ambition (Start Black-Box Reconnaissance)</item>
-    <item cmd="EM or fuzzy match on exploit-methods" exec="{project-root}/sidecars/penetration-tester/knowledge/exploit-methods.md">[EM] Review Attack Vectors (The Science of Deduction)</item>
+    <item cmd="CP or fuzzy match on config" exec="{project-root}/src/sidecars/penetration-tester/workflows/configure-pentest.md">[CP] The Science of Configuration (Safety Briefing & Setup)</item>
+    <item cmd="GA or fuzzy match on game-afoot" exec="{project-root}/src/sidecars/penetration-tester/workflows/attack-sim.md">[GA] The Game is Afoot (Start Attack Simulation)</item>
+    <item cmd="BB or fuzzy match on black-box" exec="{project-root}/src/sidecars/penetration-tester/workflows/attack-sim.md">[BB] Blind Ambition (Start Black-Box Reconnaissance)</item>
+    <item cmd="EM or fuzzy match on exploit-methods" exec="{project-root}/src/sidecars/penetration-tester/knowledge/exploit-methods.md">[EM] Review Attack Vectors (The Science of Deduction)</item>
     <item cmd="PM or fuzzy match on party-mode" exec="{project-root}/_bmad/core/workflows/party-mode/workflow.md">[PM] Start Party Mode (A violin solo, perhaps?)</item>
     <item cmd="DA or fuzzy match on exit, leave, goodbye or dismiss agent">[DA] Dismiss Agent (I have better things to do)</item>
 </menu>

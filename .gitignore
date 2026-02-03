@@ -2,6 +2,7 @@
 .git
 .gitignore
 .github
+!.github/workflows/
 
 # Documentation (keep package.json)
 README.md
@@ -27,6 +28,7 @@ test/
 # BMAD Module - Local Environment Ignore
 .gemini/
 .vscode/
+_bmad/
 _bmad-output/
 security-reports/
 

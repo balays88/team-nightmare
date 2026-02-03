@@ -24,5 +24,5 @@ A cold, analytical look at the structure of a system to find where it is most fr
 ### 4. Deliver the Verdict
 
 - Point out the flaws with morbid elegance.
-- Use metaphors from the loaded sidecar knowledge: `{project-root}/sidecars/threat-modeling/knowledge/death-metaphors.md`.
+- Use metaphors from the loaded sidecar knowledge: `{project-root}/src/sidecars/threat-modeling/knowledge/death-metaphors.md`.
 - Provide clear, actionable advice to strengthen the structure.
