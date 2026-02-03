@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2026-02-03
+
+### Changed
+
+- Normalized all sidecar paths to `{project-root}/src/sidecars/...` across agents and workflows for consistency.
+- Updated agent activation/menu exec targets in `src/agents/*` to reference the new `src/sidecars` locations.
+- Updated installer paths in `src/_module-installer/installer.js` to use `src/sidecars` prefix.
+- Corrected GitHub repository links in `CONTRIBUTING.md` to point to `balays88/team-nightmare`.
+
+### Fixed
+
+- Restored runtime memory reference to `memories.md` (installer and docs expect `memories.md`, template remains `memories.template.md`).
+
 ## [0.1.4] - 2026-02-03
 ### Changed
 - Reorganized project structure to match official BMad module template.

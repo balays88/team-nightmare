@@ -22,13 +22,13 @@ async function install(options) {
 
     // 1. Ensure Sidecar directories exist
     const sidecarDirs = [
-      'sidecars/security-architect/workflows',
-      'sidecars/security-auditor/knowledge',
-      'sidecars/security-auditor/workflows',
-      'sidecars/penetration-tester/knowledge',
-      'sidecars/penetration-tester/workflows',
-      'sidecars/threat-modeling/knowledge',
-      'sidecars/threat-modeling/workflows',
+      'src/sidecars/security-architect/workflows',
+      'src/sidecars/security-auditor/knowledge',
+      'src/sidecars/security-auditor/workflows',
+      'src/sidecars/penetration-tester/knowledge',
+      'src/sidecars/penetration-tester/workflows',
+      'src/sidecars/threat-modeling/knowledge',
+      'src/sidecars/threat-modeling/workflows',
     ];
 
     for (const dir of sidecarDirs) {
@@ -39,7 +39,7 @@ async function install(options) {
     }
 
     // 2. Initialize Memory from template (DO NOT OVERWRITE)
-    const memoryPath = path.join(projectRoot, 'sidecars/security-architect/memories.md');
+    const memoryPath = path.join(projectRoot, 'src/sidecars/security-architect/memories.md');
     const templatePath = path.join(__dirname, '../sidecars/security-architect/memories.template.md');
 
     if (await fs.pathExists(memoryPath)) {
