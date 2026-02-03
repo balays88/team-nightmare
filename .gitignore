@@ -1,15 +1,37 @@
+# Git
+.git
+.gitignore
+.github
+
+# Documentation (keep package.json)
+README.md
+*.md
+!README.md
+docs/
+
+# CI/CD
+.npmrc
+
+# Development
+test/
+*.test.js
+.eslintrc.*
+.prettierrc.*
+.husky/
+
+# Misc
+*.log
+.env
+.env.*
+
 # BMAD Module - Local Environment Ignore
-_bmad/
-_bmad-output/
 .gemini/
 .vscode/
+_bmad-output/
+security-reports/
 
 # Local configuration
 config.yaml
-
-# Security artifacts & logs (will be generated in the user's project)
-_bmad-output/
-security-reports/
 
 # Agent memories (keep the templates, ignore the history)
 sidecars/security-architect/memories.md
