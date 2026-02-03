@@ -51,7 +51,36 @@ async function install(options) {
       logger.log(chalk.blue('✓ Existing security architect memory detected. Keeping it safe.'));
     }
 
-    // 3. Create threat artifacts directory if configured
+    // 3. Initialize Pentest Configuration (DO NOT OVERWRITE)
+    const configPath = path.join(projectRoot, 'config.yaml');
+    if (await fs.pathExists(configPath)) {
+      const currentConfig = await fs.readFile(configPath, 'utf8');
+      let updatedConfig = currentConfig;
+      let needsUpdate = false;
+
+      const defaultSettings = {
+        pentest_allow_adversarial: 'false',
+        pentest_allow_blackbox: 'false',
+        pentest_allowed_environments: '[]',
+        pentest_target_ai_url: '""'
+      };
+
+      for (const [key, value] of Object.entries(defaultSettings)) {
+        if (!currentConfig.includes(`${key}:`)) {
+          updatedConfig += `\n${key}: ${value}`;
+          needsUpdate = true;
+        }
+      }
+
+      if (needsUpdate) {
+        logger.log(chalk.yellow('Initializing safe pentest defaults in config.yaml...'));
+        await fs.writeFile(configPath, updatedConfig, 'utf8');
+      } else {
+        logger.log(chalk.blue('✓ Pentest configuration detected. Preserving your settings.'));
+      }
+    }
+
+    // 4. Create threat artifacts directory
     if (config['threat_artifacts_folder']) {
       const artifactsConfig = config['threat_artifacts_folder'].replace('{project-root}/', '');
       const artifactsPath = path.join(projectRoot, artifactsConfig);

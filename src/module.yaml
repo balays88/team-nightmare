@@ -30,32 +30,7 @@ security_defcon_level:
     - value: "1"
       label: "DEFCON 1 - COCKED PISTOL (Sherlock is hunting)"
 
-pentest_allow_adversarial:
-  prompt: "Allow Sherlock to perform Adversarial AI (Prompt Injection) testing?"
-  default: true
-  result: "{value}"
-
-pentest_allow_blackbox:
-  prompt: "Allow Sherlock to perform active Black-Box reconnaissance?"
-  default: true
-  result: "{value}"
-
-pentest_allowed_environments:
-  prompt: "In which environments can Sherlock run active exploits?"
-  default: ["dev", "stage"]
-  result: "{value}"
-  multi-select:
-    - value: "dev"
-      label: "Development"
-    - value: "stage"
-      label: "Staging/QA"
-    - value: "prod"
-      label: "Production (EXTREME CAUTION)"
-
-pentest_target_ai_url:
-  prompt: "What is the public AI interface URL to test for Prompt Injection?"
-  default: "https://api.yoursystem.com/v1/chat"
-  result: "{value}"
+# Note: pentest_allow_adversarial, pentest_allow_blackbox, etc. are configured via Sherlock's workflow.
 
 threat_artifacts_folder:
   prompt: "Where should security artifacts and death lists be stored?"
