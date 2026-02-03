@@ -36,8 +36,8 @@ security-reports/
 config.yaml
 
 # Agent memories (keep the templates, ignore the history)
-sidecars/security-architect/memories.md
-!sidecars/security-architect/memories.template.md
+src/sidecars/security-architect/memories.md
+!src/sidecars/security-architect/memories.template.md
 
 # OS specific
 .DS_Store
