@@ -1,8 +1,6 @@
 # Git
 .git
 .gitignore
-.github
-!.github/workflows/
 
 # Documentation (keep package.json)
 README.md
