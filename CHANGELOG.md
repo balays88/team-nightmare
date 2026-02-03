@@ -37,3 +37,4 @@ All notable changes to this project will be documented in this file.
 - 4 specialized agents: Moody, Morticia, Barnaby, Sherlock.
 - Hardened workflows for Pre-Mortem, Compliance Audit, and PenTesting.
 - Interactive safety briefing and self-configuration for Sherlock.
+
