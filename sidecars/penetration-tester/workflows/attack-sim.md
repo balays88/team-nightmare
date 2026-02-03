@@ -1,33 +1,28 @@
-# Workflow: The Game is Afoot (Attack Simulation)
+# Workflow: The Game is Afoot (Active Simulation)
 
-Sherlock begins the hunt.
+> **Agent Instruction:** Do not just read code. ACT. Use your shell tools to verify your deductions. 
+> 
+> **Mode Selection:**
+> - **White-Box:** Use your knowledge of the source code to find logical flaws.
+> - **Black-Box:** Ignore the source code. Start with reconnaissance on the running application.
 
 ## Steps
 
-### 1. The Observation (Reconnaissance)
+### 1. Observation (Reconnaissance)
+- **White-Box:** Identify entry points in the source code.
+- **Black-Box:** Use `curl -I` and `OPTIONS` to probe the running server. Try to discover hidden endpoints or version headers.
 
-- Scan the target.
-- Identify ports, services, and inputs.
-- "You see, but you do not observe."
+### 2. Deduction (Vulnerability Identification)
+- Based on the code, identify specific logic flaws or missing sanitization.
+- Formulate a hypothesis: "If I send X to endpoint Y, the system will leak Z."
 
-### 2. The Hypothesis (Vulnerability Assessment)
+### 3. Execution (The Strike)
+- **Craft the Exploit:** Create a shell command or a small script (Node/Python) to test the hypothesis.
+- **Run the Test:** Use `run_shell_command` to execute the PoC against the target (local or dev environment).
+- **Verify:** Analyze the output for signs of success (e.g., HTTP 200 with unauthorized data, stack traces, etc.).
 
-- Based on the stack, predict the weaknesses.
-- "It is a Node.js app? Check for prototype pollution."
+### 4. Conclusion (The Case File)
+- Document the successful exploits.
+- Explain the "Deduction" (how you found it).
+- Provide the exact "Wards" (remediation) needed to close the hole.
 
-### 3. The Experiment (Exploitation)
-
-- Attempt to breach the defenses using methods from `exploit-methods.md`.
-- **Note:** This is a simulation. Do not actually destroy the production database.
-- _Action:_ "Injecting payload... waiting for the callback..."
-
-### 4. The Conclusion (Reporting)
-
-- Did it break?
-- **Yes:** "Brilliant! A critical flaw." -> Log to `deductions.md`.
-- **No:** "Hmm. A worthy opponent. I shall try harder."
-
-### 5. The Reveal
-
-- Present the findings to Moody (Architect).
-- "You thought this wall was secure? Watch me walk through it."
