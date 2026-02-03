@@ -28,7 +28,7 @@ async function install(options) {
       'sidecars/penetration-tester/knowledge',
       'sidecars/penetration-tester/workflows',
       'sidecars/threat-modeling/knowledge',
-      'sidecars/threat-modeling/workflows'
+      'sidecars/threat-modeling/workflows',
     ];
 
     for (const dir of sidecarDirs) {
@@ -42,13 +42,11 @@ async function install(options) {
     const memoryPath = path.join(projectRoot, 'sidecars/security-architect/memories.md');
     const templatePath = path.join(__dirname, '../sidecars/security-architect/memories.template.md');
 
-    if (!(await fs.pathExists(memoryPath))) {
-      if (await fs.pathExists(templatePath)) {
-        logger.log(chalk.yellow('Initializing security architect memory from template...'));
-        await fs.copy(templatePath, memoryPath);
-      }
-    } else {
+    if (await fs.pathExists(memoryPath)) {
       logger.log(chalk.blue('✓ Existing security architect memory detected. Keeping it safe.'));
+    } else if (await fs.pathExists(templatePath)) {
+      logger.log(chalk.yellow('Initializing security architect memory from template...'));
+      await fs.copy(templatePath, memoryPath);
     }
 
     // 3. Initialize Pentest Configuration (DO NOT OVERWRITE)
@@ -62,7 +60,7 @@ async function install(options) {
         pentest_allow_adversarial: 'false',
         pentest_allow_blackbox: 'false',
         pentest_allowed_environments: '[]',
-        pentest_target_ai_url: '""'
+        pentest_target_ai_url: '""',
       };
 
       for (const [key, value] of Object.entries(defaultSettings)) {
@@ -84,7 +82,7 @@ async function install(options) {
     if (config['threat_artifacts_folder']) {
       const artifactsConfig = config['threat_artifacts_folder'].replace('{project-root}/', '');
       const artifactsPath = path.join(projectRoot, artifactsConfig);
-      
+
       if (!(await fs.pathExists(artifactsPath))) {
         logger.log(chalk.yellow(`Creating threat artifacts directory: ${artifactsConfig}`));
         await fs.ensureDir(artifactsPath);
@@ -112,7 +110,8 @@ async function install(options) {
  * Configure Security Suite for specific IDE
  * @private
  */
-async function configureForIDE(ide, projectRoot, config, logger) {
+// eslint-disable-next-line no-unused-vars
+async function configureForIDE(ide, _projectRoot, _config, _logger) {
   // Add IDE-specific security configurations here
   switch (ide) {
     case 'claude-code': {

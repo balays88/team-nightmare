@@ -10,16 +10,16 @@
     "pentest",
     "audit"
   ],
-  "author": "Balazs Dudas",
-  "license": "MIT",
+  "homepage": "https://github.com/balays88/team-nightmare#readme",
+  "bugs": {
+    "url": "https://github.com/balays88/team-nightmare/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/balays88/team-nightmare.git"
   },
-  "bugs": {
-    "url": "https://github.com/balays88/team-nightmare/issues"
-  },
-  "homepage": "https://github.com/balays88/team-nightmare#readme",
+  "license": "MIT",
+  "author": "Balazs Dudas",
   "main": "",
   "bin": {},
   "scripts": {
