@@ -1,55 +1,34 @@
 #!/bin/bash
+# Discord notification helper functions
 
-# Helper functions for Discord notifications from GitHub Actions
-
-send_discord_message() {
-  local webhook_url="$1"
-  local content="$2"
-  local title="$3"
-  local color="$4"
-  local status="$5"
-
-  if [ -z "$webhook_url" ]; then
-    echo "Discord Webhook URL is missing. Skipping notification."
-    return 0
-  fi
-
-  # Default color to Blue (3447003) if not provided
-  [ -z "$color" ] && color=3447003
-
-  # Construct JSON payload
-  json_payload=$(cat <<EOF
-{
-  "embeds": [
-    {
-      "title": "${title}",
-      "description": "${content}",
-      "color": ${color},
-      "fields": [
-        {
-          "name": "Status",
-          "value": "${status}",
-          "inline": true
-        },
-        {
-          "name": "Workflow",
-          "value": "${GITHUB_WORKFLOW}",
-          "inline": true
-        }
-      ],
-      "footer": {
-        "text": "BMAD Module Automation"
-      },
-      "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+# Escape markdown special chars and @mentions for safe Discord display
+# Skips content inside <URL> wrappers to preserve URLs intact
+esc() {
+  awk '{
+    result = ""; in_url = 0; n = length($0)
+    for (i = 1; i <= n; i++) {
+      c = substr($0, i, 1)
+      if (c == "<" && substr($0, i, 8) ~ /^<https?:/) in_url = 1
+      if (in_url) { result = result c; if (c == ">") in_url = 0 }
+      else if (c == "@") result = result "@ "
+      else if (index("[]\\*_()~`", c) > 0) result = result "\\" c
+      else result = result c
     }
-  ]
-}
-EOF
-)
-
-  # Send to Discord
-  curl -H "Content-Type: application/json" -X POST -d "$json_payload" "$webhook_url"
+    print result
+  }'
 }
 
-# Export functions for use in other scripts
-export -f send_discord_message
+# Truncate to $1 chars (or 80 if wall-of-text with <3 spaces)
+trunc() {
+  local max=$1
+  local txt=$(tr '\n\r' '  ' | cut -c1-"$max")
+  local spaces=$(printf '%s' "$txt" | tr -cd ' ' | wc -c)
+  [ "$spaces" -lt 3 ] && [ ${#txt} -gt 80 ] && txt=$(printf '%s' "$txt" | cut -c1-80)
+  printf '%s' "$txt"
+}
+
+# Remove incomplete URL at end of truncated text (incomplete URLs are useless)
+strip_trailing_url() { sed -E 's~<?https?://[^[:space:]]*$~~'; }
+
+# Wrap URLs in <> to suppress Discord embeds (keeps links clickable)
+wrap_urls() { sed -E 's~https?://[^[:space:]<>]+~<&>~g'; }
