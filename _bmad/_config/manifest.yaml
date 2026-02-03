@@ -18,7 +18,7 @@ modules:
     npmPackage: null
     repoUrl: null
   - name: bmb
-    version: 0.1.4
+    version: 0.1.5
     installDate: 2026-02-02T19:40:28.012Z
     lastUpdated: 2026-02-02T19:40:30.828Z
     source: external

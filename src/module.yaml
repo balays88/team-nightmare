@@ -2,7 +2,7 @@ code: security
 name: "Security Suite (Nightmare Team)"
 header: "Nightmare Team: Hardened Multi-Agent Security Orchestration"
 subheader: "Constant Vigilance through paranoid audit and elite adversarial testing."
-version: 0.1.1-beta.1
+version: 0.1.5
 unitary: true
 default_selected: false
 tags:
