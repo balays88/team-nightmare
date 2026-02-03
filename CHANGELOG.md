@@ -8,6 +8,17 @@ All notable changes to this project will be documented in this file.
 - Moved module components to `src/` directory.
 - Standardized metadata files (`package.json`, `CHANGELOG.md`, etc.).
 
+## [0.1.3] - 2026-02-03
+### Changed
+- Sherlock: improved safety and reliability
+	- Enforced safer pentest defaults and preserved existing `config.yaml` settings when present.
+	- Initialize `sidecars/security-architect/memories.md` from template when missing (won't overwrite existing memory).
+	- Improved installer robustness for creating sidecar directories and threat artifacts folder.
+	- Refactored installer code to fix linting issues and make IDE-specific configuration scaffold explicit (unused params marked for future use).
+
+### Fixed
+- Resolved linting errors in installer and ensured installer logs are clear and actionable.
+
 ## [0.1.0-beta.1] - 2026-02-02
 ### Added
 - Initial release of the Security Suite (Nightmare Team).
