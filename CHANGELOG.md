@@ -15,6 +15,8 @@ All notable changes to this project will be documented in this file.
 	- Initialize `sidecars/security-architect/memories.md` from template when missing (won't overwrite existing memory).
 	- Improved installer robustness for creating sidecar directories and threat artifacts folder.
 	- Refactored installer code to fix linting issues and make IDE-specific configuration scaffold explicit (unused params marked for future use).
+	- New white-box mode: added support for controlled, instrumented white-box pentest workflows (local code access, authenticated scans, and richer findings output).
+	- New black-box mode: added safe black-box reconnaissance workflows (network-only discovery, non-invasive probing, and environment whitelisting).
 
 ### Fixed
 - Resolved linting errors in installer and ensured installer logs are clear and actionable.
