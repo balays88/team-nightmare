@@ -8,7 +8,7 @@
 
 ## Overview
 
-A robust, character-driven security ecosystem designed to enforce "Security First" principles across the entire development lifecycle. The "Nightmare Team" covers everything from pre-mortem analysis to active penetration testing.
+A robust, character-driven security ecosystem designed to enforce "Security First" principles across the entire development lifecycle. The "Nightmare Team" covers everything from pre-mortem analysis to active penetration testing. This module follows the official BMad module template for maximum compatibility.
 
 ---
 
